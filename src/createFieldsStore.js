@@ -7,6 +7,14 @@ import {
   startsWith,
 } from './utils';
 
+
+/**
+ * 判断pathName a 是否为pathName b的一部分
+ *
+ * @param {*} a
+ * @param {*} b
+ * @return {*} 
+ */
 function partOf(a, b) {
   return b.indexOf(a) === 0 && ['.', '['].indexOf(b[a.length]) !== -1;
 }

@@ -2,6 +2,12 @@ import hoistStatics from 'hoist-non-react-statics';
 import warning from 'warning';
 import { isMemo } from 'react-is';
 
+/**
+ * 获取被包装装饰的组件的展示名字
+ *
+ * @param {*} WrappedComponent
+ * @return {*} 
+ */
 function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || 'WrappedComponent';
 }
@@ -13,14 +19,41 @@ export function argumentContainer(Container, WrappedComponent) {
   return hoistStatics(Container, WrappedComponent);
 }
 
+/**
+ * 恒等式函数，
+ * 用于当作某些类型的回调的默认函数
+ *
+ * @export
+ * @param {*} obj
+ * @return {*} 
+ */
 export function identity(obj) {
   return obj;
 }
 
+/**
+ * 打平（复制）数组arr
+ *
+ * @export
+ * @param {*} arr
+ * @return {*} 
+ */
 export function flattenArray(arr) {
   return Array.prototype.concat.apply([], arr);
 }
 
+
+/**
+ * 对对象tree进行树形结构穿梭，
+ *
+ * @export
+ * @param {string} [path='']
+ * @param {*} tree
+ * @param {*} isLeafNode
+ * @param {*} errorMessage
+ * @param {*} callback
+ * @return {*} 
+ */
 export function treeTraverse(path = '', tree, isLeafNode, errorMessage, callback) {
   if (isLeafNode(path, tree)) {
     callback(path, tree);
@@ -52,6 +85,15 @@ export function treeTraverse(path = '', tree, isLeafNode, errorMessage, callback
   }
 }
 
+/**
+ * 
+ *
+ * @export
+ * @param {*} maybeNestedFields
+ * @param {*} isLeafNode
+ * @param {*} errorMessage
+ * @return {*} 
+ */
 export function flattenFields(maybeNestedFields, isLeafNode, errorMessage) {
   const fields = {};
   treeTraverse(undefined, maybeNestedFields, isLeafNode, errorMessage, (path, node) => {
@@ -60,6 +102,16 @@ export function flattenFields(maybeNestedFields, isLeafNode, errorMessage) {
   return fields;
 }
 
+/**
+ * 整合传入的{ validate, rules, validateTrigger }参数，
+ * 整理成规范的验证规则格式[{ trigger: ['onBlur'], rules: [{ required: true, message: '' }] }]
+ *
+ * @export
+ * @param {*} validate
+ * @param {*} rules
+ * @param {*} validateTrigger
+ * @return {*} 
+ */
 export function normalizeValidateRules(validate, rules, validateTrigger) {
   const validateRules = validate.map((item) => {
     const newItem = {
@@ -80,6 +132,14 @@ export function normalizeValidateRules(validate, rules, validateTrigger) {
   return validateRules;
 }
 
+/**
+ * 整理和获取验证规则validateRules中的触发方式tregger列表
+ * { validate: [{ trigger: 'onBlur', rules: [{ required: true }] }] }
+ *
+ * @export
+ * @param {*} validateRules
+ * @return {*} 
+ */
 export function getValidateTriggers(validateRules) {
   return validateRules
     .filter(item => !!item.rules && item.rules.length)
@@ -87,6 +147,15 @@ export function getValidateTriggers(validateRules) {
     .reduce((pre, curr) => pre.concat(curr), []);
 }
 
+
+/**
+ * 从事件对象e中获取值value，
+ * 默认函数可以外部传进来自定义
+ *
+ * @export
+ * @param {*} e
+ * @return {*} 
+ */
 export function getValueFromEvent(e) {
   // To support custom element
   if (!e || !e.target) {
@@ -137,10 +206,27 @@ export function getParams(ns, opt, cb) {
   };
 }
 
+
+/**
+ * 判断对象obj是否为空对象
+ *
+ * @export
+ * @param {*} obj
+ * @return {*} 
+ */
 export function isEmptyObject(obj) {
   return Object.keys(obj).length === 0;
 }
 
+
+/**
+ * 判断参数validate是否包含验证规则，
+ * { validate: [{ trigger: 'onBlur', rules: [{ required: true }] }] }
+ *
+ * @export
+ * @param {*} validate
+ * @return {*} 
+ */
 export function hasRules(validate) {
   if (validate) {
     return validate.some((item) => {
@@ -150,10 +236,27 @@ export function hasRules(validate) {
   return false;
 }
 
+
+/**
+ * 判断字符串str是否以字符串prefix前置开头
+ *
+ * @export
+ * @param {*} str
+ * @param {*} prefix
+ * @return {*} 
+ */
 export function startsWith(str, prefix) {
   return str.lastIndexOf(prefix, 0) === 0;
 }
 
+
+/**
+ * 判断组件nodeOrComponents是否支持ref用法
+ *
+ * @export
+ * @param {*} nodeOrComponent
+ * @return {*} 
+ */
 export function supportRef(nodeOrComponent) {
   const type = isMemo(nodeOrComponent)
     ? nodeOrComponent.type.type
