@@ -45,13 +45,14 @@ export function flattenArray(arr) {
 
 /**
  * 对对象tree进行树形结构穿梭，
+ * 将对象的key/value和数组的相当做节点分支，将所有叶子节点打平成为pathName/value的形式，
  *
  * @export
  * @param {string} [path='']
  * @param {*} tree
- * @param {*} isLeafNode
- * @param {*} errorMessage
- * @param {*} callback
+ * @param {*} isLeafNode 判断是否为叶子节点的函数
+ * @param {*} errorMessage 错误信息
+ * @param {*} callback 对所有叶子节点执行操作的回调函数
  * @return {*} 
  */
 export function treeTraverse(path = '', tree, isLeafNode, errorMessage, callback) {
@@ -86,7 +87,7 @@ export function treeTraverse(path = '', tree, isLeafNode, errorMessage, callback
 }
 
 /**
- * 
+ * 将字段对象打平成字段集合，并且返回字段集合
  *
  * @export
  * @param {*} maybeNestedFields

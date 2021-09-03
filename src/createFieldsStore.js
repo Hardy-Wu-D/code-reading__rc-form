@@ -19,6 +19,12 @@ function partOf(a, b) {
   return b.indexOf(a) === 0 && ['.', '['].indexOf(b[a.length]) !== -1;
 }
 
+/**
+ * FieldsStore内置的个性化的将字段对象fields打平成字段集的方法
+ *
+ * @param {*} fields
+ * @return {*} 
+ */
 function internalFlattenFields(fields) {
   return flattenFields(
     fields,
@@ -28,15 +34,35 @@ function internalFlattenFields(fields) {
 }
 
 class FieldsStore {
+
+  /**
+   * Creates an instance of FieldsStore.
+   * 构造函数，初始化字段集fields和字段元数据集fieldsMeta
+   * @param {*} fields
+   * @memberof FieldsStore
+   */
   constructor(fields) {
     this.fields = internalFlattenFields(fields);
     this.fieldsMeta = {};
   }
-
+  
+  /**
+   * 将字段对象fields来更新字段集【通过internalFlattenFields来打平】
+   *
+   * @param {*} fields
+   * @memberof FieldsStore
+   */
   updateFields(fields) {
     this.fields = internalFlattenFields(fields);
   }
 
+  /**
+   * 将字段对象fields中的已经注册在FieldStore中的字段打平【在字段元数据集fieldsMeta中就是已经注册的】，并且返回打平的字段集合
+   *
+   * @param {*} fields
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   flattenRegisteredFields(fields) {
     const validFieldsName = this.getAllFieldsName();
     return flattenFields(
@@ -145,6 +171,12 @@ class FieldsStore {
       [];
   }
 
+  /**
+   * 获取字段集合的所有字段名称列表【fieldsMeta中的所有字段】
+   *
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getAllFieldsName() {
     const { fieldsMeta } = this;
     return fieldsMeta ? Object.keys(fieldsMeta) : [];
