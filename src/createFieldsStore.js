@@ -127,6 +127,13 @@ class FieldsStore {
     }, {});
   }
 
+  /**
+   * 设置新的字段元数据name的值meta
+   *
+   * @param {*} name
+   * @param {*} meta
+   * @memberof FieldsStore
+   */
   setFieldMeta(name, meta) {
     this.fieldsMeta[name] = meta;
   }
