@@ -166,6 +166,13 @@ export function getValueFromEvent(e) {
   return target.type === 'checkbox' ? target.checked : target.value;
 }
 
+/**
+ * 将错误列表整理成错误字符串String列表
+ *
+ * @export
+ * @param {*} errors 错误列表，可能是Error错误对象列表，也是错误String字符串列表
+ * @return {*} 
+ */
 export function getErrorStrs(errors) {
   if (errors) {
     return errors.map((e) => {
@@ -178,6 +185,16 @@ export function getErrorStrs(errors) {
   return errors;
 }
 
+
+/**
+ * 将传入的参数整理正{ names: string, options: object, callback: Function | Function[] }的对象形式
+ *
+ * @export
+ * @param {*} ns
+ * @param {*} opt
+ * @param {*} cb
+ * @return {*} 
+ */
 export function getParams(ns, opt, cb) {
   let names = ns;
   let options = opt;
