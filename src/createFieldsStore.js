@@ -72,6 +72,13 @@ class FieldsStore {
     );
   }
 
+  /**
+   * 更新设置已经注册在FieldStore中的字段初始值【在字段元数据集fieldsMeta中就是已经注册的】
+   * 更新fieldsMeta中的字段源数据对象的initialValue
+   *
+   * @param {*} initialValues
+   * @memberof FieldsStore
+   */
   setFieldsInitialValue = (initialValues) => {
     const flattenedInitialValues = this.flattenRegisteredFields(initialValues);
     const fieldsMeta = this.fieldsMeta;
