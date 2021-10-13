@@ -92,6 +92,13 @@ class FieldsStore {
     });
   }
 
+  /**
+   * 设置新的字段集值
+   * 设置的时候会判断是否定义了字段值的规范方法normalise，如果定义了就会对新的值进行规范化处理
+   *
+   * @param {*} fields
+   * @memberof FieldsStore
+   */
   setFields(fields) {
     const fieldsMeta = this.fieldsMeta;
     const nowFields = {
@@ -158,11 +165,28 @@ class FieldsStore {
     });
   }
 
+  /**
+   * 根据字段名称获取字段元数据
+   * 如果获取的字段元数据不存在则初始化它【初始化为空对象】
+   *
+   * @param {*} name
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getFieldMeta(name) {
     this.fieldsMeta[name] = this.fieldsMeta[name] || {};
     return this.fieldsMeta[name];
   }
 
+  /**
+   * 获取字段集fields中对应名称name的字段值
+   * 如果字段集fields中没有这个值，就从尝试从字段元数据集中获取
+   *
+   * @param {*} name
+   * @param {*} fields
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getValueFromFields(name, fields) {
     const field = fields[name];
     if (field && 'value' in field) {
@@ -172,12 +196,23 @@ class FieldsStore {
     return fieldMeta && fieldMeta.initialValue;
   }
 
+  /**
+   * 获取所有已经注册在fieldStore中的字段的字段值，并且根据字段path整理成值对象valueObject
+   *
+   * @memberof FieldsStore
+   */
   getAllValues = () => {
     const { fieldsMeta, fields } = this;
     return Object.keys(fieldsMeta)
       .reduce((acc, name) => set(acc, name, this.getValueFromFields(name, fields)), {});
   }
 
+  /**
+   * 获取字段集合的所有有效的字段名称列表【fieldsMeta中的字段，并且没有设置hidden属性的】
+   *
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getValidFieldsName() {
     const { fieldsMeta } = this;
     return fieldsMeta ?
@@ -195,7 +230,14 @@ class FieldsStore {
     const { fieldsMeta } = this;
     return fieldsMeta ? Object.keys(fieldsMeta) : [];
   }
-
+  
+  /**
+   * 获取字段集合中字段命名集合namespace(maybePartialName)下的所有有效的字段名称列表【fieldsMeta中的字段，并且没有设置hidden属性的】
+   *
+   * @param {*} maybePartialName
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getValidFieldsFullName(maybePartialName) {
     const maybePartialNames = Array.isArray(maybePartialName) ?
       maybePartialName : [maybePartialName];
