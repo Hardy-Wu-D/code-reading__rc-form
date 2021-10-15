@@ -1,0 +1,498 @@
+[33mcommit 31cead59202a394219052d456774bc1dc7ca45e2[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Hardy <1174484909@qq.com>
+Date:   Wed Oct 13 16:43:35 2021 +0800
+
+    20211013
+
+[33mcommit 9f46ca42044cfda2f6e5f0ca9385af0f62881756[m
+Author: Hardy <1174484909@qq.com>
+Date:   Mon Oct 11 18:23:07 2021 +0800
+
+    doc(createFieldsStore): 阅读注释
+
+[33mcommit a425384d0c8aaef73dff1643df5348794676359e[m
+Author: Hardy <1174484909@qq.com>
+Date:   Sat Oct 9 18:46:11 2021 +0800
+
+    no message
+
+[33mcommit 2f5fa3ec276f6d6e8476543edd427d28a9ac7ce2[m
+Author: Hardy <1174484909@qq.com>
+Date:   Sun Sep 5 23:39:39 2021 +0800
+
+    .
+
+[33mcommit 3db9b2c2029a145a8b678ba9dbd6eccea4d599f5[m
+Author: Hardy <1174484909@qq.com>
+Date:   Sat Sep 4 00:34:13 2021 +0800
+
+    .
+
+[33mcommit 260fef303f6e69b004909bcb2624f37e182d3676[m
+Author: Hardy <1174484909@qq.com>
+Date:   Fri Sep 3 18:40:36 2021 +0800
+
+    no message
+
+[33mcommit f02b478c59c178ea9ee28cca3326ad1c4ed37f02[m[33m ([m[1;33mtag: 2.4.12[m[33m)[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Wed Dec 30 16:18:16 2020 +0800
+
+    bump: 2.4.12
+
+[33mcommit 2656d16112621006fec761b4ec7b0b9c4b0c0f1e[m[33m ([m[1;33mtag: 2.4.12-alpha.0[m[33m)[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Fri Nov 27 14:32:50 2020 +0800
+
+    bump 2.4.12-alpha.0
+
+[33mcommit 376901a2ca89c61def6dcb25da1ab1ccad713657[m
+Author: willc001 <will.c001@163.com>
+Date:   Fri Nov 27 14:30:18 2020 +0800
+
+    feat: getFieldDecorator support no ref component (#468)
+    
+    Co-authored-by: William Cai <williamcai@easyops.cn>
+
+[33mcommit 58adb9f9a39fc822a6fca6d0429422b25da9780c[m
+Author: zeromei <meijintao233@126.com>
+Date:   Sun Sep 20 21:20:22 2020 +0800
+
+    docs: update README.md (#310)
+    
+    Co-authored-by: charliemei <meijintao@kuaishou.com>
+
+[33mcommit 32721598fb40be845105964004af87fe2a06fcd1[m[33m ([m[1;33mtag: 2.4.11[m[33m)[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Tue Nov 19 15:44:23 2019 +0800
+
+    bump 2.4.11
+
+[33mcommit d58a30a02e1be1feed92e2cc7ef74931c54db6ae[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Tue Nov 19 15:43:18 2019 +0800
+
+    fix array type validate logic
+    fix ant-design/ant-design#19600
+
+[33mcommit 448fd20454ebcb5601a9111cf95dbac94cdc65fe[m[33m ([m[1;33mtag: 2.4.10[m[33m)[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Nov 9 17:54:11 2019 +0800
+
+    :sparkles: Release 2.4.10
+
+[33mcommit 876c80738acab2f0ec89b866165d89b379252486[m
+Author: 偏右 <afc163@gmail.com>
+Date:   Sat Nov 9 17:45:45 2019 +0800
+
+    ⚠️ fix unsafe lifecycle warnings (#355)
+    
+    * ⚠️ fix unsafe lifecycle warnings
+    
+    close #330
+    close #163
+    
+    ref ant-design/ant-design#9792
+    
+    * fix code style
+
+[33mcommit efa40fd8a77b34f43ff35e4e7bf4b4f27441ce2f[m[33m ([m[1;33mtag: 2.4.9[m[33m)[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Fri Sep 27 13:51:39 2019 +0800
+
+    bump 2.4.9
+
+[33mcommit e646219d547b210627f75e1df6b6eb12bd9520ea[m
+Author: 骗你是小猫咪 <darryshaw@gmail.com>
+Date:   Fri Sep 27 13:51:02 2019 +0800
+
+    fix: validateFields function not resolve or reject (#340)
+    
+    * fix: validateFields function not resolve or reject
+    
+    * test: add validateFieldsAndScroll promise test suite
+    
+    * test: add validateFieldsAndScroll promise test suite
+    
+    * test: add validateFieldsAndScroll promise test suite
+    
+    * test: add validateFieldsAndScroll promise test suite
+    
+    * test: add validateFieldsAndScroll.spec.js file
+
+[33mcommit 7a2fb62765ce2fc1c6b65999b20eec4762cabb23[m[33m ([m[1;33mtag: 2.4.8[m[33m)[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Mon Jul 1 22:49:03 2019 +0800
+
+    bump 2.4.8
+
+[33mcommit 65013f9b69da09466caf31f23d2431ef3ecb8bac[m
+Author: zombieJ <smith3816@gmail.com>
+Date:   Mon Jul 1 22:42:14 2019 +0800
+
+    Revert "fix: Show warning when user assigns same name to 2 or more fields. (#297)" (#308)
+    
+    This reverts commit 2b4a47a5fbceeddbf1c2c12beb675960450da9e1.
+
+[33mcommit 428b8f18576e6a46d8c2a2f0f80d47dd1e955e8a[m[33m ([m[1;33mtag: 2.4.7[m[33m)[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Sun Jun 30 14:19:20 2019 +0800
+
+    bump 2.4.7
+
+[33mcommit 2b4a47a5fbceeddbf1c2c12beb675960450da9e1[m
+Author: Dane David <dndavid102@gmail.com>
+Date:   Sun Jun 30 11:27:18 2019 +0530
+
+    fix: Show warning when user assigns same name to 2 or more fields. (#297)
+    
+    * Show warning when user assigns same name to 2 or more fields. Fixes ant-design#12960.
+    
+    * Throw warning only if element is rendered.
+    
+    * Reuse renderFields key instead of creating new key.
+    
+    * Revert "Reuse renderFields key instead of creating new key."
+    
+    This reverts commit 5f823a51cc123e47f3e23d66cad68a116360ed44.
+    
+    * Add tests
+    
+    * Add call without render test case to getFieldDecorator.
+    
+    * Edit test case
+    
+    * Add string to mock fn test
+    
+    * Add cleanup after re-render
+    
+    * Add test for component update
+
+[33mcommit fbde3228d8e5852fb46a4734174e057c1986a42f[m
+Author: dependabot-preview[bot] <27856297+dependabot-preview[bot]@users.noreply.github.com>
+Date:   Sat Jun 29 12:57:30 2019 +0800
+
+    Update async-validator requirement from ~1.8.5 to ~1.11.3 (#304)
+    
+    Updates the requirements on [async-validator](https://github.com/yiminghe/async-validator) to permit the latest version.
+    - [Release notes](https://github.com/yiminghe/async-validator/releases)
+    - [Changelog](https://github.com/yiminghe/async-validator/blob/master/HISTORY.md)
+    - [Commits](https://github.com/yiminghe/async-validator/compare/1.8.5...1.11.3)
+    
+    Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+[33mcommit d448ecbb7ca0fd69ead6bebded1a1ed4ac597674[m
+Author: Jason Cooke <Jason-Cooke@users.noreply.github.com>
+Date:   Sat Jun 29 16:57:19 2019 +1200
+
+    docs: fix typo (#305)
+
+[33mcommit a19c9327edddffefbb9d3ee214c505d538c8c3b3[m[33m ([m[1;33mtag: 2.4.6[m[33m)[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Thu Jun 20 17:44:31 2019 +0800
+
+    fix: Array validate type check logic
+    fix ant-design/ant-design#17196
+
+[33mcommit ebd11f3dc85ce8a5a3a1ed8629d63ea33ac55ebe[m
+Author: dependabot-preview[bot] <dependabot-preview[bot]@users.noreply.github.com>
+Date:   Sun May 26 21:42:38 2019 +0800
+
+    Update async requirement from ^2.6.2 to ^3.0.0 (#293)
+    
+    Updates the requirements on [async](https://github.com/caolan/async) to permit the latest version.
+    - [Release notes](https://github.com/caolan/async/releases)
+    - [Changelog](https://github.com/caolan/async/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/caolan/async/compare/v2.6.2...v3.0.0)
+    
+    Signed-off-by: dependabot[bot] <support@dependabot.com>
+
+[33mcommit 17e420dac257f7237382ebcb200cfb29772a1e79[m[33m ([m[1;33mtag: 2.4.5[m[33m)[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri May 10 10:16:44 2019 +0800
+
+    2.4.5
+
+[33mcommit 3310184eda4a58df6bbb9c7479b67f0a35abd488[m
+Author: dobrynin <David.Dobrynin@gmail.com>
+Date:   Thu May 9 19:16:13 2019 -0700
+
+    feat: Add field name to field conflict log (#291)
+    
+    * Add field name to field conflict log
+    
+    * Update createBaseForm.js
+
+[33mcommit 15ccb2712e986f6271067d751a0133fedecf6443[m[33m ([m[1;33mtag: 2.4.4[m[33m)[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Mar 30 14:15:25 2019 +0800
+
+    :sparkles: Release 2.4.4
+
+[33mcommit c573566c0d6e32cc3c14a18842e05a061e8a529d[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Mar 30 13:56:20 2019 +0800
+
+    not console error in production
+    
+    close ant-design/ant-design#15588
+
+[33mcommit 5fe0140b76cc784678eba8cae13cf5ae846fb5a3[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Mar 30 13:42:56 2019 +0800
+
+    Fix test case
+
+[33mcommit ab0d0041a77d6c554d37c1187ed1a3e13c313c13[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Mar 29 11:19:15 2019 +0800
+
+    update .travis.yml
+
+[33mcommit 9b580f661dcebdb7b50cfac67ff11a1a256f4286[m[33m ([m[1;33mtag: 2.4.3[m[33m)[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Fri Mar 1 13:52:06 2019 +0800
+
+    bump 2.4.3
+
+[33mcommit e4fa26f4282b23723c565889c4c04ebaf40a1d8f[m
+Author: zombieJ <smith3816@gmail.com>
+Date:   Fri Mar 1 13:50:52 2019 +0800
+
+    support array type (#257)
+    
+    fix ant-design/ant-design#14275
+
+[33mcommit e577449b44ce5348b350d19daad76f41a1c9e49b[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Feb 15 15:29:33 2019 +0800
+
+    Fix lgtm alerts
+    
+    https://gw.alipayobjects.com/zos/antfincdn/oOitihg4iL/c0fc2052-6a8d-47eb-a432-cf169cdd8087.png
+
+[33mcommit 5f63e9b51dece45668726c57aceb2dacc07697b4[m[33m ([m[1;33mtag: 2.4.2[m[33m)[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Feb 15 15:24:17 2019 +0800
+
+    :tada: 2.4.2
+
+[33mcommit f211eb92bb578b32b53eb3c2581e9cd8c01440e4[m
+Author: dependabot[bot] <dependabot[bot]@users.noreply.github.com>
+Date:   Fri Feb 15 15:23:07 2019 +0800
+
+    Update antd requirement from 2.x to 3.x (#229)
+    
+    Updates the requirements on [antd](https://github.com/ant-design/ant-design) to permit the latest version.
+    - [Release notes](https://github.com/ant-design/ant-design/releases)
+    - [Changelog](https://github.com/ant-design/ant-design/blob/master/CHANGELOG.en-US.md)
+    - [Commits](https://github.com/ant-design/ant-design/commits/3.11.2)
+    
+    Signed-off-by: dependabot[bot] <support@dependabot.com>
+
+[33mcommit 7a6ac60418fcabb50bac4b0b814c82eead4e8a25[m
+Merge: 8790c40 c2f6938
+Author: 偏右 <afc163@gmail.com>
+Date:   Fri Feb 15 15:18:05 2019 +0800
+
+    Merge pull request #233 from yoyo837/add-form-props
+    
+    add form props for every *change events
+
+[33mcommit 8790c405b5a05a0892c0016f74f2ce05b8e3313c[m
+Merge: 68c2ee2 5bf08a1
+Author: 偏右 <afc163@gmail.com>
+Date:   Fri Feb 15 15:17:37 2019 +0800
+
+    Merge pull request #249 from react-component/dependabot/npm_and_yarn/hoist-non-react-statics-tw-3.3.0
+    
+    Update hoist-non-react-statics requirement from ^2.3.1 to ^3.3.0
+
+[33mcommit 68c2ee209720a76ef227f5386e22d98d3fc38fa7[m
+Merge: cfe2cb9 8132490
+Author: 偏右 <afc163@gmail.com>
+Date:   Fri Feb 15 15:17:26 2019 +0800
+
+    Merge pull request #240 from sjyMystery/master
+    
+    modify compare logic when validating
+
+[33mcommit cfe2cb9792d4ebcbe04852d562f95509f84dfb80[m
+Merge: bbc0008 904dd1f
+Author: 偏右 <afc163@gmail.com>
+Date:   Fri Feb 15 15:16:43 2019 +0800
+
+    Merge pull request #243 from shubhanus/docsfix
+    
+    Docs update
+
+[33mcommit bbc000893f6fb6bd8bd6a95fa588e3ede2eff4b3[m
+Merge: 2c4d2f3 32d8166
+Author: 偏右 <afc163@gmail.com>
+Date:   Fri Feb 15 15:16:20 2019 +0800
+
+    Update warning requirement from ^3.0.0 to ^4.0.3 (#250)
+    
+    Updates the requirements on [warning](https://github.com/BerkeleyTrue/warning) to permit the latest version.
+    - [Release notes](https://github.com/BerkeleyTrue/warning/releases)
+    - [Changelog](https://github.com/BerkeleyTrue/warning/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/BerkeleyTrue/warning/commits/v4.0.3)
+    
+    Signed-off-by: dependabot[bot] <support@dependabot.com>
+
+[33mcommit 2c4d2f3f24956e9627791ba9ac6a745f39e01a20[m
+Author: dependabot[bot] <dependabot[bot]@users.noreply.github.com>
+Date:   Fri Feb 15 15:16:06 2019 +0800
+
+    Update async requirement from ^1.5.2 to ^2.6.2 (#252)
+    
+    Updates the requirements on [async](https://github.com/caolan/async) to permit the latest version.
+    - [Release notes](https://github.com/caolan/async/releases)
+    - [Changelog](https://github.com/caolan/async/blob/v2.6.2/CHANGELOG.md)
+    - [Commits](https://github.com/caolan/async/commits/v2.6.2)
+    
+    Signed-off-by: dependabot[bot] <support@dependabot.com>
+
+[33mcommit 0cd4f4ea4cacbd305a51e4e934c8256da576c3c1[m
+Author: zombieJ <smith3816@gmail.com>
+Date:   Fri Feb 15 15:15:35 2019 +0800
+
+    reset fields dirty for re-check (#238)
+    
+    * reset fields dirty for re-check
+    
+    * fix test
+    
+    * rm console
+
+[33mcommit 32d81662f480395319b540772922b33c57fd4f76[m
+Author: dependabot[bot] <support@dependabot.com>
+Date:   Tue Feb 12 21:27:41 2019 +0000
+
+    Update warning requirement from ^3.0.0 to ^4.0.3
+    
+    Updates the requirements on [warning](https://github.com/BerkeleyTrue/warning) to permit the latest version.
+    - [Release notes](https://github.com/BerkeleyTrue/warning/releases)
+    - [Changelog](https://github.com/BerkeleyTrue/warning/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/BerkeleyTrue/warning/commits/v4.0.3)
+    
+    Signed-off-by: dependabot[bot] <support@dependabot.com>
+
+[33mcommit 5bf08a14709ed5a8b207c2cec53d99497cebe397[m
+Author: dependabot[bot] <support@dependabot.com>
+Date:   Tue Feb 12 21:21:48 2019 +0000
+
+    Update hoist-non-react-statics requirement from ^2.3.1 to ^3.3.0
+    
+    Updates the requirements on [hoist-non-react-statics](https://github.com/mridgway/hoist-non-react-statics) to permit the latest version.
+    - [Release notes](https://github.com/mridgway/hoist-non-react-statics/releases)
+    - [Changelog](https://github.com/mridgway/hoist-non-react-statics/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/mridgway/hoist-non-react-statics/commits/v3.3.0)
+    
+    Signed-off-by: dependabot[bot] <support@dependabot.com>
+
+[33mcommit 904dd1f475ec54142128a541cf5345d6702f82f6[m
+Author: shubhanu <shubhanu@cartoonmango.com>
+Date:   Thu Jan 24 18:53:32 2019 +0530
+
+    https://github.com/react-component/form#tips rules: [required: true] -> [{required: true}]
+
+[33mcommit 81324901806123f9027984ed027c38853f3eb446[m
+Author: nathaniel <348831271@qq.com>
+Date:   Mon Jan 21 11:00:00 2019 +0800
+
+    modify compare logic.
+
+[33mcommit d03daa2517ba4045ee73b871155da00533064c2a[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sun Jan 13 01:54:28 2019 +0800
+
+    2.4.1 :tada:
+
+[33mcommit fc7db62384cbd0c8a1d3a1eaaa6fcd6a556bd630[m
+Merge: 26fb70c ac74d83
+Author: 偏右 <afc163@gmail.com>
+Date:   Sun Jan 13 01:47:50 2019 +0800
+
+    Merge pull request #182 from dimpurr/patch-1
+    
+    use width react native -> Use with React Native
+
+[33mcommit 26fb70c401266bd3323399f65f9606fef5f673e6[m
+Merge: b059480 623536c
+Author: 偏右 <afc163@gmail.com>
+Date:   Sun Jan 13 01:47:40 2019 +0800
+
+    Merge pull request #215 from xcorail/master
+    
+    Add LGTM code quality badges
+
+[33mcommit b059480c52ee10ec6b6308196ff3c62791804e2c[m
+Merge: ae61c66 b7d2d79
+Author: 偏右 <afc163@gmail.com>
+Date:   Sun Jan 13 01:45:05 2019 +0800
+
+    Merge pull request #236 from zhouhaoxiang/fix-validFields
+    
+    fix: 修复初次validateFields时， 自定义的validator里面有错误不会显示的bug
+
+[33mcommit b7d2d79f155bf49e5e85c71d8653ae1aa1059a7e[m
+Author: 周豪翔 <zhouhaoxiang@bytedance.com>
+Date:   Tue Jan 8 21:31:33 2019 +0800
+
+    fix: 修复初次validateFields时， 自定义的validator里面有错误不会显示的bug
+
+[33mcommit c2f693828c5860d62094f43097c491318a9a5466[m
+Author: yoyo837 <yoyo837@hotmail.com>
+Date:   Sat Dec 22 17:32:50 2018 +0800
+
+    add form props for every *change events
+
+[33mcommit ae61c6674ff34f73b5427f2bfb4f39d57f72699b[m[33m ([m[1;33mtag: 2.4.0[m[33m)[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Fri Dec 21 23:06:25 2018 +0800
+
+    bump 2.4.0
+
+[33mcommit 7509e919d13bdbc9480f686b02c896f62d957528[m
+Author: j3l11234 <297259024@qq.com>
+Date:   Fri Dec 21 23:00:05 2018 +0800
+
+    add preserve on fieldOptions (#232)
+    
+    * add preserve on fieldOptions
+    
+    * optimize the preserve option
+    
+    * update readme and test for "preserve option"
+    
+    * optimize 'preserve option'
+    
+    * remove space
+
+[33mcommit fc720b7bb8cf0cd90d7deaee481525e9680e0115[m[33m ([m[1;33mtag: 2.3.0[m[33m)[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Mon Dec 17 09:24:32 2018 +0800
+
+    bump 2.3.0 to add name prop
+
+[33mcommit ccbc347a9fd1608a87794a88ed79a9bb48def551[m
+Author: afc163 <afc163@gmail.com>
+Date:   Tue Dec 4 16:26:28 2018 +0800
+
+    2.2.7
+
+[33mcommit 2a2d190d4ddbef511e60d3f4d4c641d36789e23d[m
+Merge: c6b5926 d915dc9
+Author: 偏右 <afc163@gmail.com>
+Date:   Tue Dec 4 16:02:57 2018 +0800
+
+    Merge pull request #217 from j3l11234/fix-ref
+    
+    add ref support for React.creatRef()
+
+[33mcommit d915dc9acc1021128372cea025b00739282c7c31[m
+Author: j3l11234 <297259024@qq.com>
+Date:   Tue Dec 4 13:58:17 2018 +0800
+
+    add ref support for React.creatRef()

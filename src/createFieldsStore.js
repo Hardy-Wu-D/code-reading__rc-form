@@ -127,6 +127,13 @@ class FieldsStore {
     this.fields = nowFields;
   }
 
+  /**
+   * 重置字段集fields为初始状态
+   *
+   * @param {*} ns
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   resetFields(ns) {
     const { fields } = this;
     const names = ns ?
@@ -152,6 +159,12 @@ class FieldsStore {
     this.fieldsMeta[name] = meta;
   }
 
+  // TODO: 设置为脏来干嘛？？？
+  /**
+   * 设置字段集fields中的字段的dirty属性为true（设置为脏）
+   *
+   * @memberof FieldsStore
+   */
   setFieldsAsDirty() {
     Object.keys(this.fields).forEach((name) => {
       const field = this.fields[name];
@@ -250,6 +263,15 @@ class FieldsStore {
       )));
   }
 
+  /**
+   * 根据指定字段元数据值，获取字段集中对应字段的value对象值{ value: any, [string]: any }
+   * 没有value就用initialValue
+   * 如果有getValueProps方法参数，就用调用这个方法获取转化后的方法
+   *
+   * @param {*} fieldMeta
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getFieldValuePropValue(fieldMeta) {
     const { name, getValueProps, valuePropName } = fieldMeta;
     const field = this.getField(name);
@@ -261,6 +283,14 @@ class FieldsStore {
     return { [valuePropName]: fieldValue };
   }
 
+  /**
+   * 获取指定名称name的字段集的字段，同时把name字段一起放进去
+   * 至少返回{ name: string }
+   *
+   * @param {*} name
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getField(name) {
     return {
       ...this.fields[name],
@@ -268,6 +298,13 @@ class FieldsStore {
     };
   }
 
+  /**
+   * 获取所有已经注册但是尚未收集和更新新的值的字段属性的列表
+   * 给这些字段设置为{ name: string, dirty: boolean, value: any }格式的props对象
+   *
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getNotCollectedFields() {
     const fieldsName = this.getValidFieldsName();
     return fieldsName
@@ -280,6 +317,12 @@ class FieldsStore {
       .reduce((acc, field) => set(acc, field.name, createFormField(field)), {});
   }
 
+  /**
+   * 获取所有字段（包括字段集和已经注册但是还没收集更新过的字段）的字段集合嵌套结构对象
+   *
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getNestedAllFields() {
     return Object.keys(this.fields)
       .reduce(
@@ -288,15 +331,41 @@ class FieldsStore {
       );
   }
 
+  /**
+   * 获取字段集合fields中对应名称name的字段属性对象的对应成员名称member的值
+   *
+   * @param {*} name
+   * @param {*} member
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getFieldMember(name, member) {
     return this.getField(name)[member];
   }
 
+  /**
+   * 获取对应字段名列表names的字段的字段集合嵌套结构对象
+   * 如果没有传递names就获取全部已经注册并且有效的字段名称列表
+   * getter方法可以定义获取字段名称的获取方法
+   *
+   * @param {*} names
+   * @param {*} getter
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getNestedFields(names, getter) {
     const fields = names || this.getValidFieldsName();
     return fields.reduce((acc, f) => set(acc, f, getter(f)), {});
   }
 
+  /**
+   * 
+   *
+   * @param {*} name
+   * @param {*} getter
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   getNestedField(name, getter) {
     const fullNames = this.getValidFieldsFullName(name);
     if (
