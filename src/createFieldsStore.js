@@ -75,6 +75,7 @@ class FieldsStore {
   /**
    * 更新设置已经注册在FieldStore中的字段初始值【在字段元数据集fieldsMeta中就是已经注册的】
    * 更新fieldsMeta中的字段源数据对象的initialValue
+   * 方法用了箭头函数做this值绑定
    *
    * @param {*} initialValues
    * @memberof FieldsStore
@@ -211,6 +212,7 @@ class FieldsStore {
 
   /**
    * 获取所有已经注册在fieldStore中的字段的字段值，并且根据字段path整理成值对象valueObject
+   * 方法用了箭头函数做this值绑定
    *
    * @memberof FieldsStore
    */
@@ -426,6 +428,7 @@ class FieldsStore {
    * 获取对应字段名name的字段的字段集合嵌套结构的错误值对象
    * 方法用了箭头函数做this值绑定
    * 
+   * 
    * @param {*} name
    * @memberof FieldsStore
    */
@@ -439,6 +442,7 @@ class FieldsStore {
   /**
    * 判断对应字段名name的字段是否正处于验证阶段
    * 通过filed中validating字段进行判断
+   * 方法用了箭头函数做this值绑定
    *
    * @param {*} name
    * @memberof FieldsStore
@@ -449,6 +453,7 @@ class FieldsStore {
 
   /**
    * 判断命名空间ns内的字段是否至少有一个处于验证阶段
+   * 方法用了箭头函数做this值绑定
    *
    * @param {*} ns
    * @memberof FieldsStore
@@ -461,6 +466,7 @@ class FieldsStore {
   /**
    * 判断对应字段名name的字段是否已经被“触碰”
    * 通过field中的touched字段进行判断
+   * 方法用了箭头函数做this值绑定
    *
    * @param {*} name
    * @memberof FieldsStore
@@ -471,6 +477,7 @@ class FieldsStore {
 
   /**
    * 判断命名空间ns内的字段是否至少有一个已经被“触碰”
+   * 方法用了箭头函数做this值绑定
    *
    * @param {*} ns
    * @memberof FieldsStore
