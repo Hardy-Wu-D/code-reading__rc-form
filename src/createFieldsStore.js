@@ -359,7 +359,8 @@ class FieldsStore {
   }
 
   /**
-   * 
+   * 获取对应字段名name的字段的字段集合嵌套结构对象
+   * getter方法可以定义获取字段名称的获取方法
    *
    * @param {*} name
    * @param {*} getter
@@ -387,19 +388,47 @@ class FieldsStore {
       );
   }
 
+  /**
+   * 获取对应字段名列表names的字段的字段集合嵌套结构值对象
+   * 方法用了箭头函数做this值绑定
+   *
+   * @param {*} names 
+   * @memberof FieldsStore
+   */
   getFieldsValue = (names) => {
     return this.getNestedFields(names, this.getFieldValue);
   }
 
+  /**
+   * 获取对应字段名name的字段的字段集合嵌套结构值对象
+   * 方法用了箭头函数做this值绑定
+   *
+   * @param {*} name
+   * @memberof FieldsStore
+   */
   getFieldValue = (name) => {
     const { fields } = this;
     return this.getNestedField(name, (fullName) => this.getValueFromFields(fullName, fields));
   }
 
+  /**
+   * 获取对应字段名列表names的字段的字段集合嵌套结构的错误值对象
+   * 方法用了箭头函数做this值绑定
+   *
+   * @param {*} names
+   * @memberof FieldsStore
+   */
   getFieldsError = (names) => {
     return this.getNestedFields(names, this.getFieldError);
   }
 
+  /**
+   * 获取对应字段名name的字段的字段集合嵌套结构的错误值对象
+   * 方法用了箭头函数做this值绑定
+   * 
+   * @param {*} name
+   * @memberof FieldsStore
+   */
   getFieldError = (name) => {
     return this.getNestedField(
       name,
@@ -407,19 +436,45 @@ class FieldsStore {
     );
   }
 
+  /**
+   * 判断对应字段名name的字段是否正处于验证阶段
+   * 通过filed中validating字段进行判断
+   *
+   * @param {*} name
+   * @memberof FieldsStore
+   */
   isFieldValidating = (name) => {
     return this.getFieldMember(name, 'validating');
   }
 
+  /**
+   * 判断命名空间ns内的字段是否至少有一个处于验证阶段
+   *
+   * @param {*} ns
+   * @memberof FieldsStore
+   */
   isFieldsValidating = (ns) => {
     const names = ns || this.getValidFieldsName();
     return names.some((n) => this.isFieldValidating(n));
   }
 
+  /**
+   * 判断对应字段名name的字段是否已经被“触碰”
+   * 通过field中的touched字段进行判断
+   *
+   * @param {*} name
+   * @memberof FieldsStore
+   */
   isFieldTouched = (name) => {
     return this.getFieldMember(name, 'touched');
   }
 
+  /**
+   * 判断命名空间ns内的字段是否至少有一个已经被“触碰”
+   *
+   * @param {*} ns
+   * @memberof FieldsStore
+   */
   isFieldsTouched = (ns) => {
     const names = ns || this.getValidFieldsName();
     return names.some((n) => this.isFieldTouched(n));
@@ -427,11 +482,24 @@ class FieldsStore {
 
   // @private
   // BG: `a` and `a.b` cannot be use in the same form
+  /**
+   * 判断指定字段名称name是否能够成可用的嵌套字段
+   *
+   * @param {*} name
+   * @return {*} 
+   * @memberof FieldsStore
+   */
   isValidNestedFieldName(name) {
     const names = this.getAllFieldsName();
     return names.every(n => !partOf(n, name) && !partOf(name, n));
   }
-
+  
+  /**
+   * 删除指定字段名称name的字段注册
+   *
+   * @param {*} name
+   * @memberof FieldsStore
+   */
   clearField(name) {
     delete this.fields[name];
     delete this.fieldsMeta[name];
