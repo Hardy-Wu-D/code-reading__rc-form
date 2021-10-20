@@ -160,7 +160,6 @@ class FieldsStore {
     this.fieldsMeta[name] = meta;
   }
 
-  // TODO: 设置为脏来干嘛？？？
   /**
    * 设置字段集fields中的字段的dirty属性为true（设置为脏）
    *
@@ -394,7 +393,7 @@ class FieldsStore {
    * 获取对应字段名列表names的字段的字段集合嵌套结构值对象
    * 方法用了箭头函数做this值绑定
    *
-   * @param {*} names 
+   * @param {*} name 
    * @memberof FieldsStore
    */
   getFieldsValue = (names) => {

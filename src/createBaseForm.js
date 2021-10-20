@@ -24,8 +24,16 @@ import {
 } from './utils';
 import FieldElemWrapper from './FieldElemWrapper';
 
+/** @type {*} 默认的触发器名称是onChange */
 const DEFAULT_TRIGGER = 'onChange';
 
+/**
+ * 创建基础表单对象
+ *
+ * @param {*} [option={}] 配置对象
+ * @param {*} [mixins=[]] 混合字段对象，混入的是{ getForm: Object }
+ * @return {*} 
+ */
 function createBaseForm(option = {}, mixins = []) {
   const {
     validateMessages,
@@ -41,16 +49,26 @@ function createBaseForm(option = {}, mixins = []) {
     // @deprecated
     withRef,
   } = option;
-
+  // 装饰方法函数，返回包装了WrappedComponent的高阶组件
   return function decorate(WrappedComponent) {
+    // 通过createReactClass创建Form的ReactComponent
     const Form = createReactClass({
       mixins,
 
+      /**
+       * 根据组件属性props，调用参数中转换函数mapPropsToFields，获取和设置组件的初始state
+       *
+       * @return {*} 
+       */
       getInitialState() {
         const fields = mapPropsToFields && mapPropsToFields(this.props);
         this.fieldsStore = createFieldsStore(fields || {});
 
         this.instances = {};
+        // 绑定函数的缓存
+        // fn: 通过bind绑定this后的新函数
+        // oriFn: 绑定前的源函数
+        // { fn: function, oriFn: function }
         this.cachedBind = {};
         this.clearedFieldMetaCache = {};
 
@@ -86,20 +104,46 @@ function createBaseForm(option = {}, mixins = []) {
         };
       },
 
+      /**
+       * 组件卸载完成，清除无用的字段
+       *
+       */
       componentDidMount() {
         this.cleanUpUselessFields();
       },
-
+      
+      /**
+       * 组件接收新的属性，更新称为filedsStore的fields
+       *
+       * @param {*} nextProps
+       */
       componentWillReceiveProps(nextProps) {
         if (mapPropsToFields) {
           this.fieldsStore.updateFields(mapPropsToFields(nextProps));
         }
       },
 
+      /**
+       * 组件更新完成，清除无用的字段
+       *
+       */
       componentDidUpdate() {
         this.cleanUpUselessFields();
       },
 
+      /**
+       * 所有收集类处理函数的公用逻辑
+       * 包括：
+       *      调用指定字段名称name的字段的方法action（先找filedMeta[action]的调用，没有就找fieldMeta.originalProps[action]的调用）
+       *      通过getValueFromEvent从参数中获取新value值
+       *      对比新value值和旧value值，调用值变动回调函数onValuesChange
+       *      返回{ name: string, field: object, fieldMeta: object }
+       *
+       * @param {*} name
+       * @param {*} action
+       * @param {*} args
+       * @return {*} 
+       */
       onCollectCommon(name, action, args) {
         const fieldMeta = this.fieldsStore.getFieldMeta(name);
         if (fieldMeta[action]) {
@@ -166,6 +210,14 @@ function createBaseForm(option = {}, mixins = []) {
         });
       },
 
+      /**
+       * 获取
+       *
+       * @param {*} name
+       * @param {*} action
+       * @param {*} fn
+       * @return {*} 
+       */
       getCacheBind(name, action, fn) {
         if (!this.cachedBind[name]) {
           this.cachedBind[name] = {};
