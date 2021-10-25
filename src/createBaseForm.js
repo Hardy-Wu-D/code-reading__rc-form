@@ -174,6 +174,13 @@ function createBaseForm(option = {}, mixins = []) {
         return { name, field: { ...field, value, touched: true }, fieldMeta };
       },
 
+      /**
+       * 指定字段名称的字段的收集处理函数
+       *
+       * @param {*} name_
+       * @param {*} action
+       * @param {*} args
+       */
       onCollect(name_, action, ...args) {
         const { name, field, fieldMeta } = this.onCollectCommon(
           name_,
@@ -211,7 +218,7 @@ function createBaseForm(option = {}, mixins = []) {
       },
 
       /**
-       * 获取
+       * 获取对应字段名称的字段的绑定函数action【从cachedBind中获取，如果没有就创建对应绑定函数并且返回】
        *
        * @param {*} name
        * @param {*} action
