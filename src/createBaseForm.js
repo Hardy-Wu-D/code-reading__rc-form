@@ -199,7 +199,14 @@ function createBaseForm(option = {}, mixins = []) {
           [name]: newField,
         });
       },
-
+      
+      /**
+       * 指定字段名称的字段的验证收集处理函数
+       *
+       * @param {*} name_
+       * @param {*} action
+       * @param {*} args
+       */
       onCollectValidate(name_, action, ...args) {
         const { field, fieldMeta } = this.onCollectCommon(name_, action, args);
         const newField = {
@@ -239,14 +246,24 @@ function createBaseForm(option = {}, mixins = []) {
         return cache[action].fn;
       },
 
+      /**
+       * 获取表单字段装饰器
+       * 清除、注册、获取字段属性
+       *
+       * @param {*} name
+       * @param {*} fieldOption
+       * @return {*} 
+       */
       getFieldDecorator(name, fieldOption) {
         const props = this.getFieldProps(name, fieldOption);
         return fieldElem => {
+          // 设置字段的已渲染状态标记
           // We should put field in record if it is rendered
           this.renderFields[name] = true;
 
           const fieldMeta = this.fieldsStore.getFieldMeta(name);
           const originalProps = fieldElem.props;
+          // 被装饰组件的valuePropName和defaultPropName的属性接管提示
           if (process.env.NODE_ENV !== 'production') {
             const valuePropName = fieldMeta.valuePropName;
             warning(
@@ -267,6 +284,7 @@ function createBaseForm(option = {}, mixins = []) {
           }
           fieldMeta.originalProps = originalProps;
           fieldMeta.ref = fieldElem.ref;
+          // 复制被装饰的字段元素，添加新的props进去
           const decoratedFieldElem = React.cloneElement(fieldElem, {
             ...props,
             ...this.fieldsStore.getFieldValuePropValue(fieldMeta),
@@ -281,10 +299,19 @@ function createBaseForm(option = {}, mixins = []) {
         };
       },
 
+      /**
+       * 获取字段属性
+       * 清除、注册、获取字段属性
+       *
+       * @param {*} name
+       * @param {*} [usersFieldOption={}]
+       * @return {*} 
+       */
       getFieldProps(name, usersFieldOption = {}) {
         if (!name) {
           throw new Error('Must call `getFieldProps` with valid name string!');
         }
+        // 可使用嵌套字段名称、和已废除的exclusive的警示信息
         if (process.env.NODE_ENV !== 'production') {
           warning(
             this.fieldsStore.isValidNestedFieldName(name),
@@ -295,7 +322,7 @@ function createBaseForm(option = {}, mixins = []) {
             '`option.exclusive` of `getFieldProps`|`getFieldDecorator` had been remove.',
           );
         }
-
+        // 移除该字段的已清除元数据缓存的标记
         delete this.clearedFieldMetaCache[name];
 
         const fieldOption = {
