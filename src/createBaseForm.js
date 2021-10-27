@@ -397,10 +397,23 @@ function createBaseForm(option = {}, mixins = []) {
         return inputProps;
       },
 
+      /**
+       * 获取字段实例
+       *
+       * @param {*} name
+       * @return {*} 
+       */
       getFieldInstance(name) {
         return this.instances[name];
       },
 
+      /**
+       * 从字段元数据中获取验证规则，并转化为合适的格式
+       *
+       * @param {*} fieldMeta
+       * @param {*} action
+       * @return {*} 
+       */
       getRules(fieldMeta, action) {
         const actionRules = fieldMeta.validate
           .filter(item => {
@@ -410,6 +423,13 @@ function createBaseForm(option = {}, mixins = []) {
         return flattenArray(actionRules);
       },
 
+      /**
+       * 设置字段属性值
+       * 设置完成后调用onFieldsChange并且调用React组件的forceUpdate强行更新
+       *
+       * @param {*} maybeNestedFields
+       * @param {*} callback
+       */
       setFields(maybeNestedFields, callback) {
         const fields = this.fieldsStore.flattenRegisteredFields(
           maybeNestedFields,
