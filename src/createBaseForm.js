@@ -452,6 +452,12 @@ function createBaseForm(option = {}, mixins = []) {
         this.forceUpdate(callback);
       },
 
+      /**
+       * 设置字段值对象
+       *
+       * @param {*} changedValues
+       * @param {*} callback
+       */
       setFieldsValue(changedValues, callback) {
         const { fieldsMeta } = this.fieldsStore;
         const values = this.fieldsStore.flattenRegisteredFields(changedValues);
@@ -486,6 +492,14 @@ function createBaseForm(option = {}, mixins = []) {
         }
       },
 
+      /**
+       * 保存关联字段名name的实例ref
+       *
+       * @param {*} name
+       * @param {*} _
+       * @param {*} component
+       * @return {*} 
+       */
       saveRef(name, _, component) {
         if (!component) {
           const fieldMeta = this.fieldsStore.getFieldMeta(name);
@@ -518,6 +532,10 @@ function createBaseForm(option = {}, mixins = []) {
         this.instances[name] = component;
       },
 
+      /**
+       * 清除无用字段
+       *
+       */
       cleanUpUselessFields() {
         const fieldList = this.fieldsStore.getAllFieldsName();
         const removedList = fieldList.filter(field => {
@@ -534,12 +552,22 @@ function createBaseForm(option = {}, mixins = []) {
         this.renderFields = {};
       },
 
+      /**
+       * 清除字段名的字段记录
+       *
+       * @param {*} name
+       */
       clearField(name) {
         this.fieldsStore.clearField(name);
         delete this.instances[name];
         delete this.cachedBind[name];
       },
 
+      /**
+       * 重置指定命名空间ns的字段记录
+       *
+       * @param {*} ns
+       */
       resetFields(ns) {
         const newFields = this.fieldsStore.resetFields(ns);
         if (Object.keys(newFields).length > 0) {
@@ -553,6 +581,11 @@ function createBaseForm(option = {}, mixins = []) {
         }
       },
 
+      /**
+       * 复原被清除的字段记录【从this.clearedFieldMetaCacht中获取】
+       *
+       * @param {*} name
+       */
       recoverClearedField(name) {
         if (this.clearedFieldMetaCache[name]) {
           this.fieldsStore.setFields({
@@ -565,7 +598,7 @@ function createBaseForm(option = {}, mixins = []) {
           delete this.clearedFieldMetaCache[name];
         }
       },
-
+      
       validateFieldsInternal(
         fields,
         { fieldNames, action, options = {} },
