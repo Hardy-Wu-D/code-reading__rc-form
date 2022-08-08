@@ -187,7 +187,7 @@ export function getErrorStrs(errors) {
 
 
 /**
- * 将传入的参数整理正{ names: string, options: object, callback: Function | Function[] }的对象形式
+ * 将传入的参数整理成{ names: string, options: object, callback: Function | Function[] }的对象形式
  *
  * @export
  * @param {*} ns

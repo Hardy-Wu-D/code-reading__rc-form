@@ -5,6 +5,14 @@ import createBaseForm from './createBaseForm';
 import { mixin as formMixin } from './createForm';
 import { getParams } from './utils';
 
+/**
+ * 获取元素的计算属性
+ * 处理兼容问题以及转化属性prop的名称大小写
+ *
+ * @param {*} el
+ * @param {*} prop
+ * @return {*} 
+ */
 function computedStyle(el, prop) {
   const getComputedStyle = window.getComputedStyle;
   const style =
@@ -31,6 +39,13 @@ function computedStyle(el, prop) {
   return undefined;
 }
 
+/**
+ * 获取最近的具有垂直滚动条的父节点
+ * 判断依据：(overflowY === 'auto' || overflowY === 'scroll') && node.scrollHeight > node.clientHeight
+ *
+ * @param {*} n
+ * @return {*} 
+ */
 function getScrollableContainer(n) {
   let node = n;
   let nodeName;
@@ -57,10 +72,16 @@ const mixin = {
       validateFieldsAndScroll: this.validateFieldsAndScroll,
     };
   },
-
+  /**
+   * 判断对象obj是否为空对象
+   *
+   * @export
+   * @param {*} obj
+   * @return {*} 
+   */
   validateFieldsAndScroll(ns, opt, cb) {
     const { names, callback, options } = getParams(ns, opt, cb);
-
+    // 增强callback传递给validateFields（判断和获取最前的FieldDom节点并且scrollIntoView）
     const newCb = (error, values) => {
       if (error) {
         const validNames = this.fieldsStore.getValidFieldsName();
@@ -99,6 +120,12 @@ const mixin = {
   },
 };
 
+/**
+ * 创建包含validateFieldsAndScroll方法的Form
+ *
+ * @param {*} option
+ * @return {*} 
+ */
 function createDOMForm(option) {
   return createBaseForm({
     ...option,
