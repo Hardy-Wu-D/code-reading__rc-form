@@ -502,8 +502,12 @@ function createBaseForm(option = {}, mixins = []) {
        */
       saveRef(name, _, component) {
         if (!component) {
+          // component参数为空则为需要卸载filed组件
+          // 并且设置domFields中的标记
           const fieldMeta = this.fieldsStore.getFieldMeta(name);
           if (!fieldMeta.preserve) {
+            // 如果设置了preserve
+            // 则将Meta元数据放入clearedFieldMetaCache缓存然后删除
             // after destroy, delete data
             this.clearedFieldMetaCache[name] = {
               field: this.fieldsStore.getField(name),
